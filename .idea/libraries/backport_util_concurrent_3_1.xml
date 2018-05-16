@@ -1,0 +1,32 @@
+<component name="libraryTable">
+  <library name="backport-util-concurrent-3.1">
+    <CLASSES>
+      <root url="jar://$PROJECT_DIR$/lib/backport-util-concurrent-3.1.jar!/" />
+      <root url="jar://$PROJECT_DIR$/lib/classworlds-1.1-alpha-2.jar!/" />
+      <root url="jar://$PROJECT_DIR$/lib/commons-io-2.5.jar!/" />
+      <root url="jar://$PROJECT_DIR$/lib/jooq-3.6.1.jar!/" />
+      <root url="jar://$PROJECT_DIR$/lib/jooq-codegen-3.6.1.jar!/" />
+      <root url="jar://$PROJECT_DIR$/lib/jooq-codegen-maven-3.6.1.jar!/" />
+      <root url="jar://$PROJECT_DIR$/lib/jooq-meta-3.6.1.jar!/" />
+      <root url="jar://$PROJECT_DIR$/lib/json-20140107.jar!/" />
+      <root url="jar://$PROJECT_DIR$/lib/junit-3.8.1.jar!/" />
+      <root url="jar://$PROJECT_DIR$/lib/maven-artifact-2.2.1.jar!/" />
+      <root url="jar://$PROJECT_DIR$/lib/maven-artifact-manager-2.2.1.jar!/" />
+      <root url="jar://$PROJECT_DIR$/lib/maven-model-2.2.1.jar!/" />
+      <root url="jar://$PROJECT_DIR$/lib/maven-plugin-api-2.2.1.jar!/" />
+      <root url="jar://$PROJECT_DIR$/lib/maven-plugin-registry-2.2.1.jar!/" />
+      <root url="jar://$PROJECT_DIR$/lib/maven-profile-2.2.1.jar!/" />
+      <root url="jar://$PROJECT_DIR$/lib/maven-project-2.2.1.jar!/" />
+      <root url="jar://$PROJECT_DIR$/lib/maven-repository-metadata-2.2.1.jar!/" />
+      <root url="jar://$PROJECT_DIR$/lib/maven-settings-2.2.1.jar!/" />
+      <root url="jar://$PROJECT_DIR$/lib/mysql-connector-java-5.1.17.jar!/" />
+      <root url="jar://$PROJECT_DIR$/lib/mysql-connector-mxj-5.0.12.jar!/" />
+      <root url="jar://$PROJECT_DIR$/lib/plexus-container-default-1.0-alpha-9-stable-1.jar!/" />
+      <root url="jar://$PROJECT_DIR$/lib/plexus-interpolation-1.11.jar!/" />
+      <root url="jar://$PROJECT_DIR$/lib/plexus-utils-1.5.15.jar!/" />
+      <root url="jar://$PROJECT_DIR$/lib/wagon-provider-api-1.0-beta-6.jar!/" />
+    </CLASSES>
+    <JAVADOC />
+    <SOURCES />
+  </library>
+</component>
