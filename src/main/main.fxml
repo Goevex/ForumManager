@@ -1,50 +1,36 @@
 <?xml version="1.0" encoding="UTF-8"?>
 
+<?import javafx.scene.control.Button?>
+<?import javafx.scene.control.Label?>
 <?import javafx.scene.control.Menu?>
 <?import javafx.scene.control.MenuBar?>
 <?import javafx.scene.control.MenuItem?>
-<?import javafx.scene.control.SplitPane?>
 <?import javafx.scene.layout.AnchorPane?>
-<?import javafx.scene.layout.FlowPane?>
 
-<AnchorPane prefHeight="388.0" prefWidth="747.0" xmlns="http://javafx.com/javafx/8.0.121" xmlns:fx="http://javafx.com/fxml/1">
+<AnchorPane prefHeight="388.0" prefWidth="747.0" xmlns="http://javafx.com/javafx/8.0.121" xmlns:fx="http://javafx.com/fxml/1" fx:controller="main.Controller">
     <children>
-<FlowPane AnchorPane.bottomAnchor="0.0" AnchorPane.leftAnchor="0.0" AnchorPane.rightAnchor="0.0" AnchorPane.topAnchor="0.0" xmlns="http://javafx.com/javafx/8.0.121" xmlns:fx="http://javafx.com/fxml/1">
-    <children>
-        <AnchorPane prefHeight="200.0" prefWidth="706.0">
-            <children>
-                <MenuBar prefHeight="25.0" prefWidth="400.0" AnchorPane.leftAnchor="0.0" AnchorPane.rightAnchor="0.0" AnchorPane.topAnchor="0.0">
-                    <menus>
-                        <Menu mnemonicParsing="false" text="File">
-                            <items>
-                                <MenuItem mnemonicParsing="false" text="Close" />
-                            </items>
-                        </Menu>
-                        <Menu mnemonicParsing="false" text="Edit">
-                            <items>
-                                <MenuItem mnemonicParsing="false" text="Delete" />
-                            </items>
-                        </Menu>
-                        <Menu mnemonicParsing="false" text="Help">
-                            <items>
-                                <MenuItem mnemonicParsing="false" text="About" />
-                            </items>
-                        </Menu>
-                    </menus>
-                </MenuBar>
-                <AnchorPane prefHeight="355.0" prefWidth="733.0" AnchorPane.leftAnchor="0.0" AnchorPane.rightAnchor="0.0">
-                    <children>
-                        <SplitPane dividerPositions="0.2421185372005044" layoutX="23.0" layoutY="25.0" prefHeight="160.0" prefWidth="200.0" AnchorPane.bottomAnchor="0.0" AnchorPane.leftAnchor="0.0" AnchorPane.rightAnchor="0.0" AnchorPane.topAnchor="25.0">
-                            <items>
-                                <AnchorPane minHeight="0.0" minWidth="0.0" prefHeight="160.0" prefWidth="100.0" />
-                                <AnchorPane minHeight="0.0" minWidth="0.0" />
-                            </items>
-                        </SplitPane>
-                    </children>
-                </AnchorPane>
-            </children>
-        </AnchorPane>
-    </children>
-</FlowPane>
+    <MenuBar prefHeight="25.0" prefWidth="710.0" AnchorPane.leftAnchor="0.0" AnchorPane.rightAnchor="0.0" AnchorPane.topAnchor="0.0">
+        <menus>
+            <Menu mnemonicParsing="false" text="File">
+                <items>
+                    <MenuItem mnemonicParsing="false" text="Close" />
+                </items>
+            </Menu>
+            <Menu mnemonicParsing="false" text="Edit">
+                <items>
+                    <MenuItem mnemonicParsing="false" text="Delete" />
+                </items>
+            </Menu>
+            <Menu mnemonicParsing="false" text="Help">
+                <items>
+                    <MenuItem mnemonicParsing="false" text="About" />
+                </items>
+            </Menu>
+        </menus>
+    </MenuBar>
+      <Button id="userBtn" fx:id="userBtn" layoutX="236.0" layoutY="133.0" mnemonicParsing="false" onAction="#handleUserBtnAction" prefHeight="71.0" prefWidth="90.0" styleClass="button-main" stylesheets="@style.css" />
+      <Label layoutX="236.0" layoutY="204.0" prefHeight="17.0" prefWidth="90.0" text="Users" textAlignment="CENTER" />
+      <Button fx:id="settingsBtn" layoutX="421.0" layoutY="133.0" mnemonicParsing="false" onAction="#handleSaveBtnAction" prefHeight="71.0" prefWidth="90.0" styleClass="button-main" stylesheets="@style.css" />
+      <Label layoutX="421.0" layoutY="204.0" prefHeight="17.0" prefWidth="90.0" text="Settings" textAlignment="CENTER" />
     </children>
 </AnchorPane>

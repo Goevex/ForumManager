@@ -1,0 +1,13 @@
+.accordion-category {
+    width: 100%;
+    height: 100%;
+}
+
+.button-main {
+    -fx-background-repeat: no-repeat;
+    -fx-background-position: center;
+}
+
+#userBtn {
+    -fx-background-image: url('http://icons.iconarchive.com/icons/aha-soft/desktop-buffet/128/Pizza-icon.png');
+}
