@@ -1,7 +1,7 @@
 package settings;
 
 import classes.Settings;
-import classes.Socket;
+import classes.database.Socket;
 import classes.message.Confirmation;
 import classes.message.Error;
 import javafx.event.ActionEvent;

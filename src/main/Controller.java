@@ -3,10 +3,9 @@ package main;
 import classes.Constants;
 import classes.FontAwesome;
 import classes.Settings;
-import classes.Socket;
+import classes.database.Socket;
 import javafx.application.Platform;
 import javafx.event.ActionEvent;
-import javafx.event.EventHandler;
 import javafx.fxml.FXML;
 import javafx.fxml.FXMLLoader;
 import javafx.scene.Parent;
@@ -15,7 +14,6 @@ import javafx.scene.control.Button;
 import javafx.scene.image.Image;
 import javafx.stage.Modality;
 import javafx.stage.Stage;
-import javafx.stage.WindowEvent;
 
 import java.sql.SQLException;
 

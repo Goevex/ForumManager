@@ -3,6 +3,7 @@
 <?import javafx.scene.control.Button?>
 <?import javafx.scene.control.ChoiceBox?>
 <?import javafx.scene.control.DatePicker?>
+<?import javafx.scene.control.Hyperlink?>
 <?import javafx.scene.control.Label?>
 <?import javafx.scene.control.ListView?>
 <?import javafx.scene.control.PasswordField?>
@@ -14,51 +15,53 @@
 <SplitPane dividerPositions="0.2134" prefHeight="392.0" prefWidth="793.0" xmlns="http://javafx.com/javafx/8.0.121" xmlns:fx="http://javafx.com/fxml/1" fx:controller="user.Controller">
     <items>
         <AnchorPane minHeight="0.0" minWidth="0.0" prefHeight="160.0" prefWidth="100.0">
-         <children>
-            <TextField fx:id="searchUsernameTxt" layoutX="14.0" layoutY="305.0" promptText="Search usernames..." AnchorPane.leftAnchor="0.0" AnchorPane.rightAnchor="0.0" AnchorPane.topAnchor="0.0" />
-            <AnchorPane prefHeight="200.0" prefWidth="200.0" AnchorPane.bottomAnchor="0.0" AnchorPane.leftAnchor="-0.0" AnchorPane.rightAnchor="-0.0" AnchorPane.topAnchor="29.0">
-               <children>
-                  <ListView fx:id="usersLV" prefHeight="334.0" prefWidth="156.0" AnchorPane.bottomAnchor="0.0" AnchorPane.leftAnchor="0.0" AnchorPane.rightAnchor="0.0" AnchorPane.topAnchor="0.0" />
-               </children>
-            </AnchorPane>
-         </children>
+            <children>
+                <TextField fx:id="searchUsernameTxt" layoutX="14.0" layoutY="305.0" promptText="Search usernames..." AnchorPane.leftAnchor="0.0" AnchorPane.rightAnchor="0.0" AnchorPane.topAnchor="0.0" />
+                <AnchorPane prefHeight="200.0" prefWidth="200.0" AnchorPane.bottomAnchor="0.0" AnchorPane.leftAnchor="-0.0" AnchorPane.rightAnchor="-0.0" AnchorPane.topAnchor="29.0">
+                    <children>
+                        <ListView fx:id="usersLV" prefHeight="334.0" prefWidth="156.0" AnchorPane.bottomAnchor="0.0" AnchorPane.leftAnchor="0.0" AnchorPane.rightAnchor="0.0" AnchorPane.topAnchor="0.0" />
+                    </children>
+                </AnchorPane>
+            </children>
         </AnchorPane>
         <AnchorPane minHeight="0.0" minWidth="0.0" prefHeight="406.0" prefWidth="619.0">
-         <children>
-            <TextField layoutX="70.0" layoutY="15.0" />
-            <TextField layoutX="70.0" layoutY="48.0" />
-            <PasswordField layoutX="320.0" layoutY="83.0" />
-            <TextField layoutX="81.0" layoutY="181.0" />
-            <TextField layoutX="81.0" layoutY="213.0" />
-            <TextField layoutX="81.0" layoutY="280.0" />
-            <DatePicker layoutX="81.0" layoutY="246.0" prefHeight="25.0" prefWidth="149.0" />
-            <Label layoutX="6.0" layoutY="18.0" text="ID" />
-            <Label layoutX="6.0" layoutY="52.0" text="Username" />
-            <Label layoutX="234.0" layoutY="87.0" text="New Password" />
-            <Label layoutX="12.0" layoutY="185.0" text="First Name" />
-            <Label layoutX="12.0" layoutY="217.0" text="Last Name" />
-            <Label layoutX="12.0" layoutY="284.0" text="Location" />
-            <Label layoutX="12.0" layoutY="152.0" text="Gender" />
-            <Label layoutX="12.0" layoutY="250.0" text="Birthday" />
-            <Button layoutX="474.0" layoutY="83.0" mnemonicParsing="false" text="Save password" />
-            <Label layoutX="234.0" layoutY="52.0" text="Role" />
-            <Label layoutX="6.0" layoutY="87.0" text="Email" />
-            <TextField layoutX="70.0" layoutY="83.0" />
-            <Label layoutX="232.0" layoutY="18.0" text="Status" />
-            <ChoiceBox layoutX="273.0" layoutY="14.0" prefWidth="150.0" />
-            <ChoiceBox layoutX="273.0" layoutY="48.0" prefWidth="150.0" />
-            <Label layoutX="443.0" layoutY="10.0" text="Last Update" />
-            <Label layoutX="513.0" layoutY="10.0" text="01.02.2015, 15:43" />
-            <Label layoutX="281.0" layoutY="153.0" text="Website" />
-            <TextField layoutX="334.0" layoutY="148.0" />
-            <TextField layoutX="334.0" layoutY="181.0" />
-            <TextField layoutX="334.0" layoutY="213.0" />
+            <children>
+                <Label layoutX="6.0" layoutY="18.0" text="ID" />
+                <TextField fx:id="idDBTxt" layoutX="70.0" layoutY="15.0" />
+                <Label layoutX="6.0" layoutY="52.0" text="Username" />
+                <TextField fx:id="usernameDbTxt" layoutX="70.0" layoutY="48.0" />
+                <Label layoutX="6.0" layoutY="87.0" text="Email" />
+                <TextField fx:id="emailDBtxt" layoutX="70.0" layoutY="83.0" />
+                <Label layoutX="232.0" layoutY="18.0" text="Status" />
+                <ChoiceBox fx:id="statusDBCoiceB" layoutX="273.0" layoutY="14.0" prefWidth="150.0" />
+                <Label layoutX="234.0" layoutY="52.0" text="Role" />
+                <ChoiceBox fx:id="roleDBChoiceB" layoutX="273.0" layoutY="48.0" prefWidth="150.0" />
+                <Label layoutX="12.0" layoutY="152.0" text="Gender" />
+                <ChoiceBox fx:id="genderDBChoiceB" layoutX="80.0" layoutY="148.0" prefWidth="150.0" />
+                <Label layoutX="234.0" layoutY="87.0" text="New Password" />
+                <PasswordField fx:id="newPassTxt" layoutX="320.0" layoutY="83.0" />
+                <Button fx:id="savePassBtn" layoutX="474.0" layoutY="83.0" mnemonicParsing="false" text="Save password" />
+                <Label layoutX="443.0" layoutY="10.0" text="Last Update" />
+                <Label fx:id="lastUpdateDBLabel" layoutX="513.0" layoutY="10.0" text="01.02.2015, 15:43" />
+                <Label layoutX="12.0" layoutY="185.0" text="First Name" />
+                <TextField fx:id="firstnameDBTxt" layoutX="81.0" layoutY="181.0" />
+                <Label layoutX="12.0" layoutY="217.0" text="Last Name" />
+                <TextField fx:id="lastnameDBtxt" layoutX="81.0" layoutY="213.0" />
+                <Label layoutX="12.0" layoutY="250.0" text="Birthday" />
+                <DatePicker fx:id="birthdayDBDPicker" layoutX="81.0" layoutY="246.0" prefHeight="25.0" prefWidth="149.0" />
+                <Label layoutX="12.0" layoutY="284.0" text="Location" />
+                <TextField fx:id="locationDBTxt" layoutX="81.0" layoutY="280.0" />
+                <Label layoutX="281.0" layoutY="153.0" text="Website" />
+                <TextField fx:id="websiteDBTxt" layoutX="334.0" layoutY="148.0" />
             <Label layoutX="273.0" layoutY="185.0" text="Facebook" />
+                <TextField fx:id="facebookDBTxt" layoutX="334.0" layoutY="181.0" />
             <Label layoutX="291.0" layoutY="217.0" text="Skype" />
-            <ChoiceBox layoutX="80.0" layoutY="148.0" prefWidth="150.0" />
-            <TextArea layoutX="334.0" layoutY="247.0" prefHeight="92.0" prefWidth="266.0" />
-            <Label layoutX="290.0" layoutY="250.0" text="About" />
-            <Button layoutX="559.0" layoutY="351.0" mnemonicParsing="false" text="Save" />
-         </children></AnchorPane>
+                <TextField fx:id="skypeDBTxt" layoutX="334.0" layoutY="213.0" />
+                <Label layoutX="290.0" layoutY="250.0" text="About" />
+                <TextArea fx:id="aboutDBTxtarea" layoutX="334.0" layoutY="247.0" prefHeight="92.0" prefWidth="266.0" />
+                <Button fx:id="saveDBBtn" layoutX="559.0" layoutY="351.0" mnemonicParsing="false" onAction="#handleSaveDBBtn" text="Save" />
+            <Hyperlink layoutX="22.0" layoutY="352.0" text="http://test/" />
+            </children>
+        </AnchorPane>
     </items>
 </SplitPane>
