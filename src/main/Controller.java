@@ -1,22 +1,28 @@
 package main;
 
 import classes.Constants;
+import classes.FontAwesome;
 import classes.Settings;
 import classes.Socket;
 import javafx.application.Platform;
 import javafx.event.ActionEvent;
+import javafx.event.EventHandler;
 import javafx.fxml.FXML;
 import javafx.fxml.FXMLLoader;
 import javafx.scene.Parent;
 import javafx.scene.Scene;
-
+import javafx.scene.control.Button;
 import javafx.scene.image.Image;
 import javafx.stage.Modality;
 import javafx.stage.Stage;
+import javafx.stage.WindowEvent;
 
 import java.sql.SQLException;
 
 public class Controller {
+    public Button userBtn;
+    public Button settingsBtn;
+
     public Controller() {
     }
 
@@ -34,6 +40,9 @@ public class Controller {
         if (Socket.isClosed()) {
             Platform.exit();
         }
+
+        userBtn.setGraphic(FontAwesome.get("USER", 48));
+        settingsBtn.setGraphic(FontAwesome.get("GEAR", 48));
     }
 
     private void openUser() {

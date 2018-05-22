@@ -3,33 +3,60 @@
 <?import javafx.scene.control.Button?>
 <?import javafx.scene.control.Label?>
 <?import javafx.scene.control.PasswordField?>
+<?import javafx.scene.control.RadioButton?>
 <?import javafx.scene.control.Tab?>
 <?import javafx.scene.control.TabPane?>
 <?import javafx.scene.control.TextField?>
+<?import javafx.scene.control.ToggleGroup?>
 <?import javafx.scene.layout.AnchorPane?>
 
-<TabPane xmlns="http://javafx.com/javafx/8.0.121" xmlns:fx="http://javafx.com/fxml/1" fx:controller="settings.Controller">
-   <tabs>
-      <Tab fx:id="connectionTab" closable="false" text="Connection">
-         <content>
-            <AnchorPane fx:id="connectionAPane" prefHeight="164.0" prefWidth="376.0">
-               <children>
-                  <Label layoutX="23.0" layoutY="14.0" prefHeight="17.0" prefWidth="28.0" text="Host" />
-                  <Label layoutX="175.0" layoutY="14.0" text="Port" />
-                  <Label layoutX="250.0" layoutY="14.0" text="Database" />
-                  <Label layoutX="25.0" layoutY="66.0" text="User" />
-                  <PasswordField fx:id="passwordPtxt" layoutX="23.0" layoutY="127.0" />
-                  <TextField fx:id="hostTxt" layoutX="23.0" layoutY="31.0" />
-                  <TextField fx:id="databaseTxt" layoutX="250.0" layoutY="31.0" prefHeight="25.0" prefWidth="100.0" />
-                  <TextField fx:id="userTxt" layoutX="23.0" layoutY="83.0" />
-                  <TextField fx:id="portTxt" layoutX="175.0" layoutY="31.0" prefHeight="25.0" prefWidth="72.0" />
-                  <Label layoutX="23.0" layoutY="111.0" text="Password" />
-                  <Button fx:id="testConnBtn" layoutX="176.0" layoutY="127.0" mnemonicParsing="false" onAction="#handleTestConBtn" text="Test connection" />
-                  <Button fx:id="connSaveBtn" layoutX="280.0" layoutY="127.0" mnemonicParsing="false" onAction="#handleConnSaveBtnAction" text="Save" />
-                  <Button fx:id="connResetBtn" layoutX="325.0" layoutY="127.0" mnemonicParsing="false" onAction="#handleConnResetBtn" text="Reset" />
-               </children>
-            </AnchorPane>
-         </content>
-      </Tab>
-   </tabs>
-</TabPane>
+<AnchorPane prefHeight="227.0" prefWidth="376.0" xmlns="http://javafx.com/javafx/8.0.121" xmlns:fx="http://javafx.com/fxml/1" fx:controller="settings.Controller">
+    <children>
+        <Button fx:id="connSaveBtn" layoutX="321.0" layoutY="196.0" mnemonicParsing="false" onAction="#handleSaveBtnAction" text="Save" />
+        <TabPane prefHeight="193.0" prefWidth="376.0" AnchorPane.leftAnchor="0.0" AnchorPane.rightAnchor="0.0" AnchorPane.topAnchor="0.0">
+            <tabs>
+                <Tab fx:id="connectionTab" closable="false" text="Database">
+                    <content>
+                        <AnchorPane fx:id="connectionAPane" prefHeight="160.0" prefWidth="376.0">
+                            <children>
+                                <Label layoutX="23.0" layoutY="14.0" prefHeight="17.0" prefWidth="28.0" text="Host" />
+                                <TextField fx:id="hostTxt" layoutX="23.0" layoutY="31.0" />
+                                <Label layoutX="175.0" layoutY="14.0" text="Port" />
+                                <TextField fx:id="portTxt" layoutX="175.0" layoutY="31.0" prefHeight="25.0" prefWidth="72.0" />
+                                <Label layoutX="250.0" layoutY="14.0" text="Database" />
+                                <TextField fx:id="databaseTxt" layoutX="250.0" layoutY="31.0" prefHeight="25.0" prefWidth="100.0" />
+                                <Label layoutX="25.0" layoutY="66.0" text="User" />
+                                <TextField fx:id="userTxt" layoutX="23.0" layoutY="83.0" />
+                                <Label layoutX="176.0" layoutY="66.0" text="Password" />
+                                <PasswordField fx:id="passwordPtxt" layoutX="176.0" layoutY="83.0" />
+                                <Button fx:id="testConnBtn" layoutX="262.0" layoutY="127.0" mnemonicParsing="false" onAction="#handleTestConnBtn" text="Test connection" />
+                                <Button fx:id="connResetBtn" layoutX="72.0" layoutY="127.0" mnemonicParsing="false" onAction="#handleConnResetBtn" text="Reset" />
+                                <Button fx:id="connClearBtn" layoutX="23.0" layoutY="127.0" mnemonicParsing="false" onAction="#handleConnClearBtn" text="Clear" />
+                            </children>
+                        </AnchorPane>
+                    </content>
+                </Tab>
+                <Tab fx:id="websiteTab" closable="false" text="Website">
+                    <content>
+                        <AnchorPane fx:id="websiteAPane" minHeight="0.0" minWidth="0.0" prefHeight="180.0" prefWidth="200.0">
+                            <children>
+                                <Button fx:id="webResetBtn" layoutX="317.0" layoutY="125.0" mnemonicParsing="false" onAction="#handleWebResetBtn" text="Reset" />
+                                <RadioButton fx:id="protHttpRadio" layoutX="29.0" layoutY="27.0" mnemonicParsing="false" text="http" toggleGroup="$protocolTG">
+                                    <toggleGroup>
+                                        <ToggleGroup fx:id="protocolTG" />
+                                    </toggleGroup>
+                                </RadioButton>
+                                <RadioButton fx:id="protHttpsRadio" layoutX="82.0" layoutY="27.0" mnemonicParsing="false" text="https" toggleGroup="$protocolTG" />
+                                <Label layoutX="28.0" layoutY="51.0" text="Host" />
+                                <TextField fx:id="webHostTxt" layoutX="28.0" layoutY="72.0" />
+                                <Button fx:id="webClearBtn" layoutX="268.0" layoutY="125.0" mnemonicParsing="false" onAction="#handleWebClearBtn" text="Clear" />
+                        <Label layoutX="28.0" layoutY="6.0" text="Protocol" />
+                        <Button fx:id="testWebBtn" layoutX="30.0" layoutY="121.0" mnemonicParsing="false" onAction="#handleTestWebBtn" text="Request website" />
+                            </children>
+                        </AnchorPane>
+                    </content>
+                </Tab>
+            </tabs>
+        </TabPane>
+    </children>
+</AnchorPane>

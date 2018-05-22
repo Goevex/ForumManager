@@ -1,7 +1,7 @@
 package classes;
 
 import org.apache.commons.io.FileUtils;
-import org.json.*;
+import org.json.JSONObject;
 
 import java.io.File;
 import java.io.FileWriter;
@@ -13,6 +13,8 @@ public final class Settings {
     private static String sqlDatabase;
     private static String sqlUser;
     private static String sqlPassword;
+    private static String webProt;
+    private static String webHost;
 
     public static void saveToFile() {
         try {
@@ -25,7 +27,7 @@ public final class Settings {
 
             String jsonString = root.toString();
 
-            FileWriter fileWriter = new FileWriter(System.getProperty("user.home") + "\\" + "ForumManagerConfig.json");
+            FileWriter fileWriter = new FileWriter(Constants.CONFIG_PATH);
             fileWriter.write(jsonString);
             fileWriter.flush();
             fileWriter.close();
@@ -37,7 +39,7 @@ public final class Settings {
 
     public static boolean loadFromFile() {
 
-        File file = new File(System.getProperty("user.home") + "\\" + "ForumManagerConfig.json");
+        File file = new File(Constants.CONFIG_PATH);
         String content;
         if (file.exists() && !file.isDirectory()) {
             try {
@@ -49,7 +51,7 @@ public final class Settings {
                 for (Field field : fields) {
                     try {
                         field.set(Settings.class, root.getString(field.getName()));
-                    } catch(Exception e){
+                    } catch (Exception e) {
                         System.out.printf("Settings load failed: %s not found\n", field.getName());
                     }
                 }
@@ -99,5 +101,21 @@ public final class Settings {
 
     public static void setSqlPassword(String sqlPassword) {
         Settings.sqlPassword = sqlPassword;
+    }
+
+    public static String getWebProt() {
+        return webProt;
+    }
+
+    public static void setWebProt(String webProt) {
+        Settings.webProt = webProt;
+    }
+
+    public static String getWebHost() {
+        return webHost;
+    }
+
+    public static void setWebHost(String webHost) {
+        Settings.webHost = webHost;
     }
 }

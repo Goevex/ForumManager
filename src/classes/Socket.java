@@ -1,8 +1,6 @@
 package classes;
 
-import java.sql.Connection;
-import java.sql.DriverManager;
-import java.sql.SQLException;
+import java.sql.*;
 
 public final class Socket {
     private static Connection connection;
@@ -42,5 +40,21 @@ public final class Socket {
             e.printStackTrace();
         }
         return true;
+    }
+
+    public static ResultSet getAll(String table) {
+        PreparedStatement stmt=null;
+        try {
+            connect();
+            stmt = connection.prepareStatement("SELECT * FROM ?");
+//            stmt.set(1, table);
+            return stmt.executeQuery();
+
+        } catch (SQLException e) {
+            e.printStackTrace();
+        } finally{
+            close();
+        }
+        return  null;
     }
 }
