@@ -12,5 +12,6 @@
     <orderEntry type="library" name="org.json:json:20140107" level="project" />
     <orderEntry type="library" name="commons-io:commons-io:2.5" level="project" />
     <orderEntry type="library" name="org.controlsfx:controlsfx:9.0.0" level="project" />
+    <orderEntry type="library" name="backport-util-concurrent-3.1" level="project" />
   </component>
 </module>

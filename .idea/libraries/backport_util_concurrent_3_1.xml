@@ -4,6 +4,7 @@
       <root url="jar://$PROJECT_DIR$/lib/backport-util-concurrent-3.1.jar!/" />
       <root url="jar://$PROJECT_DIR$/lib/classworlds-1.1-alpha-2.jar!/" />
       <root url="jar://$PROJECT_DIR$/lib/commons-io-2.5.jar!/" />
+      <root url="jar://$PROJECT_DIR$/lib/controlsfx-9.0.0.jar!/" />
       <root url="jar://$PROJECT_DIR$/lib/jooq-3.6.1.jar!/" />
       <root url="jar://$PROJECT_DIR$/lib/jooq-codegen-3.6.1.jar!/" />
       <root url="jar://$PROJECT_DIR$/lib/jooq-codegen-maven-3.6.1.jar!/" />
@@ -21,6 +22,7 @@
       <root url="jar://$PROJECT_DIR$/lib/maven-settings-2.2.1.jar!/" />
       <root url="jar://$PROJECT_DIR$/lib/mysql-connector-java-5.1.17.jar!/" />
       <root url="jar://$PROJECT_DIR$/lib/mysql-connector-mxj-5.0.12.jar!/" />
+      <root url="jar://$PROJECT_DIR$/lib/org.apache.httpcomponents.httpclient-4.5.2.v20170210-0925.jar!/" />
       <root url="jar://$PROJECT_DIR$/lib/plexus-container-default-1.0-alpha-9-stable-1.jar!/" />
       <root url="jar://$PROJECT_DIR$/lib/plexus-interpolation-1.11.jar!/" />
       <root url="jar://$PROJECT_DIR$/lib/plexus-utils-1.5.15.jar!/" />
