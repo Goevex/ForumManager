@@ -1,28 +1,36 @@
 package classes.message;
 
 import javafx.scene.control.Alert;
-import javafx.scene.control.ScrollPane;
-import javafx.scene.control.TextArea;
+import javafx.scene.control.ButtonType;
+
+import java.util.Optional;
 
 public class Confirmation extends Alert {
-    public Confirmation(String title, String header, String dialog) {
+    public final int NONE = 1;
+    public final int YES_NO = 2;
+
+    public Confirmation(String title, String header, int dialog) {
         super(AlertType.CONFIRMATION);
         this.setTitle(title);
         this.setHeaderText(header);
-        if (dialog != "") {
-            this.getDialogPane().setExpandableContent(new ScrollPane(new TextArea(dialog)));
+        switch (dialog) {
+            case NONE:
+                break;
+            case YES_NO:
+                this.getButtonTypes().setAll(ButtonType.OK, ButtonType.CANCEL);
+                break;
         }
     }
 
     public Confirmation(String title, String header) {
-        this(title, header, "");
+        this(title, header, 0);
     }
 
-    public static void showConf(String title, String header) {
-        showConf(title, header, "");
+    public static Optional showConf(String title, String header) {
+        return showConf(title, header, 0);
     }
 
-    public static void showConf(String title, String header, String dialog) {
-        new Confirmation(title, header, dialog).showAndWait();
+    public static Optional showConf(String title, String header, int dialog) {
+        return new Confirmation(title, header, dialog).showAndWait();
     }
 }

@@ -35,9 +35,6 @@ public class Controller {
         } catch (SQLException e) {
             openSettings();
         }
-        if (Socket.isClosed()) {
-            Platform.exit();
-        }
 
         userBtn.setGraphic(FontAwesome.get("USER", 48));
         settingsBtn.setGraphic(FontAwesome.get("GEAR", 48));

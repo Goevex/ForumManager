@@ -12,7 +12,7 @@
 <?import javafx.scene.control.TextField?>
 <?import javafx.scene.layout.AnchorPane?>
 
-<SplitPane dividerPositions="0.2134" prefHeight="392.0" prefWidth="793.0" xmlns="http://javafx.com/javafx/8.0.121" xmlns:fx="http://javafx.com/fxml/1" fx:controller="user.Controller">
+<SplitPane dividerPositions="0.2134" prefHeight="364.0" prefWidth="754.0" xmlns="http://javafx.com/javafx/8.0.121" xmlns:fx="http://javafx.com/fxml/1" fx:controller="user.Controller">
     <items>
         <AnchorPane minHeight="0.0" minWidth="0.0" prefHeight="160.0" prefWidth="100.0">
             <children>
@@ -24,25 +24,16 @@
                 </AnchorPane>
             </children>
         </AnchorPane>
-        <AnchorPane minHeight="0.0" minWidth="0.0" prefHeight="406.0" prefWidth="619.0">
+        <AnchorPane fx:id="userPanel" minHeight="0.0" minWidth="0.0" prefHeight="364.0" prefWidth="619.0">
             <children>
-                <Label layoutX="6.0" layoutY="18.0" text="ID" />
-                <TextField fx:id="idDBTxt" layoutX="70.0" layoutY="15.0" />
-                <Label layoutX="6.0" layoutY="52.0" text="Username" />
-                <TextField fx:id="usernameDbTxt" layoutX="70.0" layoutY="48.0" />
-                <Label layoutX="6.0" layoutY="87.0" text="Email" />
-                <TextField fx:id="emailDBtxt" layoutX="70.0" layoutY="83.0" />
-                <Label layoutX="232.0" layoutY="18.0" text="Status" />
-                <ChoiceBox fx:id="statusDBCoiceB" layoutX="273.0" layoutY="14.0" prefWidth="150.0" />
-                <Label layoutX="234.0" layoutY="52.0" text="Role" />
-                <ChoiceBox fx:id="roleDBChoiceB" layoutX="273.0" layoutY="48.0" prefWidth="150.0" />
-                <Label layoutX="234.0" layoutY="87.0" text="New Password" />
-                <PasswordField fx:id="newPassTxt" layoutX="320.0" layoutY="83.0" />
+                <Label layoutX="10.0" layoutY="49.0" text="ID" />
+                <TextField fx:id="idDBTxt" editable="false" layoutX="80.0" layoutY="46.0" />
+                <Label layoutX="10.0" layoutY="83.0" text="Username" />
+                <TextField fx:id="usernameDBTxt" layoutX="80.0" layoutY="79.0" />
+                <Label layoutX="10.0" layoutY="118.0" text="Email" />
+                <TextField fx:id="emailDBtxt" layoutX="80.0" layoutY="114.0" />
                 <Label layoutX="12.0" layoutY="152.0" text="Gender" />
                 <ChoiceBox fx:id="genderDBChoiceB" layoutX="80.0" layoutY="148.0" prefWidth="150.0" />
-                <Button fx:id="savePassBtn" layoutX="474.0" layoutY="83.0" mnemonicParsing="false" text="Save password" />
-                <Label layoutX="441.0" layoutY="30.0" text="Last Update" />
-                <Label fx:id="lastUpdateDBLabel" layoutX="511.0" layoutY="30.0" text="01.02.2015, 15:43" />
                 <Label layoutX="12.0" layoutY="185.0" text="First Name" />
                 <TextField fx:id="firstnameDBTxt" layoutX="81.0" layoutY="181.0" />
                 <Label layoutX="12.0" layoutY="217.0" text="Last Name" />
@@ -51,18 +42,30 @@
                 <DatePicker fx:id="birthdayDBDPicker" layoutX="81.0" layoutY="246.0" prefHeight="25.0" prefWidth="149.0" />
                 <Label layoutX="12.0" layoutY="284.0" text="Location" />
                 <TextField fx:id="locationDBTxt" layoutX="81.0" layoutY="280.0" />
-                <Label layoutX="281.0" layoutY="153.0" text="Website" />
-                <TextField fx:id="websiteDBTxt" layoutX="334.0" layoutY="148.0" />
-            <Label layoutX="273.0" layoutY="185.0" text="Facebook" />
-                <TextField fx:id="facebookDBTxt" layoutX="334.0" layoutY="181.0" />
-            <Label layoutX="291.0" layoutY="217.0" text="Skype" />
-                <TextField fx:id="skypeDBTxt" layoutX="334.0" layoutY="213.0" />
-                <Label layoutX="290.0" layoutY="250.0" text="About" />
-                <TextArea fx:id="aboutDBTxtarea" layoutX="334.0" layoutY="247.0" prefHeight="92.0" prefWidth="266.0" />
-                <Button fx:id="saveDBBtn" layoutX="559.0" layoutY="351.0" mnemonicParsing="false" onAction="#handleSaveDBBtn" text="Save" />
-            <Hyperlink layoutX="22.0" layoutY="352.0" text="http://test/" />
-            <Label layoutX="441.0" layoutY="13.0" text="Created on" />
-            <Label fx:id="createdOnLabel" layoutX="511.0" layoutY="13.0" text="01.02.2015, 15:43" />
+                <Label layoutX="259.0" layoutY="46.0" text="Status" />
+                <ChoiceBox fx:id="statusDBCoiceB" layoutX="301.0" layoutY="42.0" prefWidth="150.0" />
+                <Label layoutX="267.0" layoutY="83.0" text="Role" />
+                <ChoiceBox fx:id="roleDBChoiceB" layoutX="301.0" layoutY="76.0" prefWidth="150.0" />
+            <Label layoutX="243.0" layoutY="118.0" text="Steam ID" />
+            <TextField fx:id="steamIDDBTxt" layoutX="301.0" layoutY="114.0" prefHeight="25.0" prefWidth="276.0" />
+                <Label layoutX="248.0" layoutY="153.0" text="Website" />
+                <TextField fx:id="websiteDBTxt" layoutX="302.0" layoutY="148.0" prefHeight="25.0" prefWidth="276.0" />
+            <Label layoutX="240.0" layoutY="185.0" text="Facebook" />
+                <TextField fx:id="facebookDBTxt" layoutX="302.0" layoutY="181.0" prefHeight="25.0" prefWidth="276.0" />
+            <Label layoutX="258.0" layoutY="217.0" text="Skype" />
+                <TextField fx:id="skypeDBTxt" layoutX="302.0" layoutY="213.0" prefHeight="25.0" prefWidth="276.0" />
+                <Label layoutX="257.0" layoutY="250.0" text="About" />
+                <TextArea fx:id="aboutDBTxtarea" layoutX="301.0" layoutY="247.0" prefHeight="61.0" prefWidth="276.0" />
+                <Label layoutX="13.0" layoutY="323.0" text="New Password" />
+                <PasswordField fx:id="newPassTxt" layoutX="99.0" layoutY="319.0" />
+                <Button fx:id="savePassBtn" layoutX="253.0" layoutY="319.0" mnemonicParsing="false" text="Save password" />
+                <Button fx:id="saveDBBtn" layoutX="537.0" layoutY="319.0" mnemonicParsing="false" onAction="#handleSaveDBBtn" stylesheets="@style.css" text="Save" />
+            <Button fx:id="resetDBBtn" layoutX="479.0" layoutY="319.0" mnemonicParsing="false" onAction="#handleResetDBBtnAction" text="Reset" />
+            <Hyperlink fx:id="websiteHyperlink" layoutX="9.0" layoutY="18.0" onAction="#handleWebsiteHyperlinkAction" text="http://test.com" />
+                <Label layoutX="386.0" layoutY="2.0" text="Last Update" />
+                <Label fx:id="lastUpdateLabel" layoutX="455.0" layoutY="2.0" text="2018-05-25 14:28:31.0" />
+            <Label layoutX="10.0" layoutY="2.0" text="Created on" />
+            <Label fx:id="createdOnLabel" layoutX="77.0" layoutY="2.0" prefHeight="17.0" text="2018-05-25 14:28:31.0" />
             </children>
         </AnchorPane>
     </items>

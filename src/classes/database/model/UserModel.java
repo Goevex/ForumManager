@@ -1,24 +1,35 @@
 package classes.database.model;
 
-public class UserModel {
-    private int id;
-    private String username;
-    private String email;
-    private int statusId;
-    private int roleId;
-    private int gender;
-    private String firstname;
-    private String lastname;
-    private String location;
-    private String birthday;
-    private String lastUpdate;
-    private String createdOn;
-    private String facebook;
-    private String website;
-    private String skype;
-    private String about;
-    private String picturePath;
-    private String coverPath;
+public class UserModel extends Model {
+    protected int id;
+    protected String username;
+    protected String email;
+    protected int statusId;
+    protected int roleId;
+    protected int gender;
+    protected String firstname;
+    protected String lastname;
+    protected String location;
+    protected String birthday;
+    protected String lastUpdate;
+    protected String createdOn;
+    protected String facebook;
+    protected String website;
+    protected String skype;
+    protected String about;
+    protected String picturePath;
+    protected String coverPath;
+    protected String steamID;
+
+    public UserModel() {
+        super();
+    }
+
+    @Override
+    protected void excludeEq() {
+        excludeEqual.add("createdOn");
+        excludeEqual.add("lastUpdate");
+    }
 
     public int getId() {
         return id;
@@ -162,6 +173,14 @@ public class UserModel {
 
     public void setCreatedOn(String createdOn) {
         this.createdOn = createdOn;
+    }
+
+    public String getSteamID() {
+        return steamID;
+    }
+
+    public void setSteamID(String steamID) {
+        this.steamID = steamID;
     }
 }
 

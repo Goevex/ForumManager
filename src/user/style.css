@@ -1,0 +1,7 @@
+.success-shadow {
+    -fx-effect: dropshadow(three-pass-box, rgba(80,208,69,0.8), 10, 0, 0, 0);
+}
+
+.fail-shadow {
+    -fx-effect: dropshadow(three-pass-box, rgba(249, 59, 59,0.8), 10, 0, 0, 0);
+}
