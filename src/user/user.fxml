@@ -39,7 +39,7 @@
                 <Label layoutX="12.0" layoutY="217.0" text="Last Name" />
                 <TextField fx:id="lastnameDBtxt" layoutX="81.0" layoutY="213.0" />
                 <Label layoutX="12.0" layoutY="250.0" text="Birthday" />
-                <DatePicker fx:id="birthdayDBDPicker" layoutX="81.0" layoutY="246.0" prefHeight="25.0" prefWidth="149.0" />
+                <DatePicker fx:id="birthdayDBDPicker" editable="false" layoutX="81.0" layoutY="246.0" prefHeight="25.0" prefWidth="149.0" />
                 <Label layoutX="12.0" layoutY="284.0" text="Location" />
                 <TextField fx:id="locationDBTxt" layoutX="81.0" layoutY="280.0" />
                 <Label layoutX="259.0" layoutY="46.0" text="Status" />
@@ -58,7 +58,7 @@
                 <TextArea fx:id="aboutDBTxtarea" layoutX="301.0" layoutY="247.0" prefHeight="61.0" prefWidth="276.0" />
                 <Label layoutX="13.0" layoutY="323.0" text="New Password" />
                 <PasswordField fx:id="newPassTxt" layoutX="99.0" layoutY="319.0" />
-                <Button fx:id="savePassBtn" layoutX="253.0" layoutY="319.0" mnemonicParsing="false" text="Save password" />
+                <Button fx:id="savePassBtn" layoutX="253.0" layoutY="319.0" mnemonicParsing="false" onAction="#handleSavePassBtnAction" text="Save password" />
                 <Button fx:id="saveDBBtn" layoutX="537.0" layoutY="319.0" mnemonicParsing="false" onAction="#handleSaveDBBtn" stylesheets="@style.css" text="Save" />
             <Button fx:id="resetDBBtn" layoutX="479.0" layoutY="319.0" mnemonicParsing="false" onAction="#handleResetDBBtnAction" text="Reset" />
             <Hyperlink fx:id="websiteHyperlink" layoutX="9.0" layoutY="18.0" onAction="#handleWebsiteHyperlinkAction" text="http://test.com" />

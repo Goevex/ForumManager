@@ -1,19 +1,16 @@
-package classes.database.component;
+package classes.database;
 
 import classes.Constants;
 import javafx.beans.value.ChangeListener;
-import javafx.scene.control.ChoiceBox;
-import javafx.scene.control.Control;
-import javafx.scene.control.DatePicker;
-import javafx.scene.control.TextField;
+import javafx.scene.control.*;
 
 import java.util.ArrayList;
 
-public class ComponentDBHelper {
+public class DBComponentHelper {
     Runnable onChangeFunc;
     ArrayList<Control> controls;
 
-    public ComponentDBHelper(Runnable onChange) {
+    public DBComponentHelper(Runnable onChange) {
         this.onChangeFunc = onChange;
         controls = new ArrayList<>();
     }
@@ -32,6 +29,12 @@ public class ComponentDBHelper {
         }
         if (control instanceof ChoiceBox) {
             ((ChoiceBox) control).getSelectionModel().selectedItemProperty().addListener(onChangeWhileFocus);
+        }
+        if (control instanceof TextArea) {
+            ((TextArea) control).textProperty().addListener(onChangeWhileFocus);
+        }
+        if (control instanceof PasswordField) {
+            ((PasswordField) control).textProperty().addListener(onChangeWhileFocus);
         }
         controls.add(control);
     }

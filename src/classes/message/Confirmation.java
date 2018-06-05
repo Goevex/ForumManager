@@ -1,7 +1,10 @@
 package classes.message;
 
+import classes.Constants;
 import javafx.scene.control.Alert;
 import javafx.scene.control.ButtonType;
+import javafx.scene.image.Image;
+import javafx.stage.Stage;
 
 import java.util.Optional;
 
@@ -11,6 +14,8 @@ public class Confirmation extends Alert {
 
     public Confirmation(String title, String header, int dialog) {
         super(AlertType.CONFIRMATION);
+        Stage stage = (Stage) this.getDialogPane().getScene().getWindow();
+        stage.getIcons().add(new Image(Constants.ICON_PATH));
         this.setTitle(title);
         this.setHeaderText(header);
         switch (dialog) {

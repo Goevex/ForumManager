@@ -4,7 +4,7 @@ import org.controlsfx.glyphfont.Glyph;
 import org.controlsfx.glyphfont.GlyphFont;
 import org.controlsfx.glyphfont.GlyphFontRegistry;
 
-public final class FontAwesome {
+public final class GlyphBuilder {
     private static final GlyphFont fontAwesome = GlyphFontRegistry.font("FontAwesome");
 
     public static Glyph get(String name, double size){

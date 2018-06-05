@@ -1,11 +1,14 @@
 package settings;
 
-import classes.Settings;
-import classes.database.Socket;
+import classes.Constants;
+import classes.SettingsLoader;
+import classes.ManagerTask;
+import classes.database.ConnectionBuilder;
 import classes.message.Confirmation;
 import classes.message.Error;
 import javafx.event.ActionEvent;
 import javafx.fxml.FXML;
+import javafx.scene.Cursor;
 import javafx.scene.Node;
 import javafx.scene.control.*;
 import javafx.scene.layout.AnchorPane;
@@ -14,6 +17,7 @@ import org.codehaus.plexus.util.ExceptionUtils;
 
 import java.net.HttpURLConnection;
 import java.net.URL;
+import java.sql.Connection;
 import java.sql.SQLException;
 
 public class Controller {
@@ -30,22 +34,25 @@ public class Controller {
     public RadioButton protHttpsRadio;
     public TextField webHostTxt;
     public ToggleGroup protocolTG;
+    private Thread testConnectionThread;
+    private Thread testWebsiteThread;
+    private Thread openConnectionThread;
 
     public Controller() {
     }
 
     private void saveSettings() {
-        Settings.setSqlHost(hostTxt.getText());
-        Settings.setSqlPort(portTxt.getText());
-        Settings.setSqlDatabase(databaseTxt.getText());
-        Settings.setSqlUser(userTxt.getText());
-        Settings.setSqlPassword(passwordPtxt.getText());
+        SettingsLoader.setSqlHost(hostTxt.getText());
+        SettingsLoader.setSqlPort(portTxt.getText());
+        SettingsLoader.setSqlDatabase(databaseTxt.getText());
+        SettingsLoader.setSqlUser(userTxt.getText());
+        SettingsLoader.setSqlPassword(passwordPtxt.getText());
         RadioButton protRadio = (RadioButton) (protocolTG.getSelectedToggle());
         if (protRadio != null) {
-            Settings.setWebProt(protRadio.getText());
+            SettingsLoader.setWebProt(protRadio.getText());
         }
-        Settings.setWebHost(webHostTxt.getText());
-        Settings.saveToFile();
+        SettingsLoader.setWebHost(webHostTxt.getText());
+        SettingsLoader.saveToFile();
     }
 
     private void loadSettings() {
@@ -54,18 +61,18 @@ public class Controller {
     }
 
     private void loadDatabaseSettings() {
-        hostTxt.setText(Settings.getSqlHost());
-        portTxt.setText(Settings.getSqlPort());
-        databaseTxt.setText(Settings.getSqlDatabase());
-        userTxt.setText(Settings.getSqlUser());
-        passwordPtxt.setText(Settings.getSqlPassword());
+        hostTxt.setText(SettingsLoader.getSqlHost());
+        portTxt.setText(SettingsLoader.getSqlPort());
+        databaseTxt.setText(SettingsLoader.getSqlDatabase());
+        userTxt.setText(SettingsLoader.getSqlUser());
+        passwordPtxt.setText(SettingsLoader.getSqlPassword());
     }
 
     private void loadWebsiteSettings() {
         protHttpRadio.setSelected(false);
         protHttpsRadio.setSelected(false);
-        if (Settings.getWebProt() != null) {
-            switch (Settings.getWebProt()) {
+        if (SettingsLoader.getWebProt() != null) {
+            switch (SettingsLoader.getWebProt()) {
                 case "http":
                     protHttpRadio.setSelected(true);
                     break;
@@ -76,7 +83,7 @@ public class Controller {
                     break;
             }
         }
-        webHostTxt.setText(Settings.getWebHost());
+        webHostTxt.setText(SettingsLoader.getWebHost());
     }
 
     private void clearInputInPane(Pane pane) {
@@ -90,34 +97,45 @@ public class Controller {
             if (node instanceof RadioButton) {
                 ((RadioButton) node).setSelected(false);
             }
+            if (node instanceof TextArea) {
+                ((RadioButton) node).setText("");
+            }
         }
     }
 
     private void testConnection() {
-        try {
-            Socket.connect(hostTxt.getText(), portTxt.getText(), databaseTxt.getText(), userTxt.getText(), passwordPtxt.getText());
-            Alert alert = new Alert(Alert.AlertType.CONFIRMATION);
-            alert.setTitle("Connection Confirmation");
-            alert.setHeaderText("Connection has been successful.");
-            alert.showAndWait();
-        } catch (SQLException e) {
-            Error.showErr("Connection failed", "Could not connect to the database.", ExceptionUtils.getStackTrace(e));
-        } finally {
-            Socket.close();
-        }
-    }
+        ManagerTask testConnectionTask = new ManagerTask() {
+            @Override
+            protected Object call() throws Exception {
+                connectionTab.getContent().getScene().setCursor(Cursor.WAIT);
+                Connection testC = null;
+                try {
+                    testC = ConnectionBuilder.connect(hostTxt.getText(), portTxt.getText(), databaseTxt.getText(), userTxt.getText(), passwordPtxt.getText());
+                } catch (SQLException e) {
+                    setErrorTrace(ExceptionUtils.getStackTrace(e));
+                } finally {
+                    connectionTab.getContent().getScene().setCursor(Cursor.DEFAULT);
+                    try {
+                        testC.close();
+                    } catch (SQLException e) {
+                    }
+                }
+                return null;
+            }
 
-    private void openConnection() {
-        try {
-            Socket.connect();
-            Alert alert = new Alert(Alert.AlertType.CONFIRMATION);
-            alert.setTitle("Connection Confirmation");
-            alert.setHeaderText("Connection has been successful.");
-            alert.showAndWait();
-        } catch (SQLException e) {
-            Error.showErr("Connection failed", "Could not connect to the database.", ExceptionUtils.getStackTrace(e));
-        } finally {
-            Socket.close();
+            @Override
+            protected void succeeded() {
+                Confirmation.showConf("Connection Confirmation", "Connection has been successful.");
+            }
+
+            @Override
+            protected void failed() {
+                Error.showErr("Connection failed", "Could not connect to the database.", getErrorTrace());
+            }
+        };
+        if (testConnectionThread == null || !testConnectionThread.isAlive()) {
+            testConnectionThread = new Thread(testConnectionTask, Constants.TASK_TEST_CONNECTION);
+            testConnectionThread.start();
         }
     }
 

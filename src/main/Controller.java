@@ -1,10 +1,10 @@
 package main;
 
 import classes.Constants;
-import classes.FontAwesome;
-import classes.Settings;
-import classes.database.Socket;
-import javafx.application.Platform;
+import classes.GlyphBuilder;
+import classes.SettingsLoader;
+import classes.database.ConnectionBuilder;
+import javafx.application.Application;
 import javafx.event.ActionEvent;
 import javafx.fxml.FXML;
 import javafx.fxml.FXMLLoader;
@@ -26,18 +26,18 @@ public class Controller {
 
     @FXML
     private void initialize() {
-        if (!Settings.loadFromFile()) {
-            Settings.saveToFile();
+        if (!SettingsLoader.loadFromFile()) {
+            SettingsLoader.saveToFile();
         }
 
         try {
-            Socket.connect();
+            ConnectionBuilder.connect();
         } catch (SQLException e) {
             openSettings();
         }
 
-        userBtn.setGraphic(FontAwesome.get("USER", 48));
-        settingsBtn.setGraphic(FontAwesome.get("GEAR", 48));
+        userBtn.setGraphic(GlyphBuilder.get("USER", 48));
+        settingsBtn.setGraphic(GlyphBuilder.get("GEAR", 48));
     }
 
     private void openUser() {
@@ -74,5 +74,9 @@ public class Controller {
 
     public void handleSaveBtnAction(ActionEvent actionEvent) {
         openSettings();
+    }
+
+    public void handlecloseMenuItemActionC(ActionEvent actionEvent) {
+        System.exit(0);
     }
 }
